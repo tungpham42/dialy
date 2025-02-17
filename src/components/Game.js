@@ -109,7 +109,7 @@ const Game = () => {
             <>
               <MapContainer
                 center={[16.5, 107.5]}
-                zoom={6}
+                zoom={5}
                 style={{ height: "420px" }}
               >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
