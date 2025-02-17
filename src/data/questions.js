@@ -1,8 +1,8 @@
 const questions = [
-  { question: "Thành phố Huế ở đâu?", answer: [16.4637, 107.5909] },
   { question: "Thủ đô của Việt Nam ở đâu?", answer: [21.0285, 105.8542] },
   { question: "Thành phố Hồ Chí Minh ở đâu?", answer: [10.7769, 106.7009] },
   { question: "Thành phố Đà Nẵng ở đâu?", answer: [16.0471, 108.2065] },
+  { question: "Thành phố Huế ở đâu?", answer: [16.4637, 107.5909] },
   { question: "Thành phố Hải Phòng ở đâu?", answer: [20.8449, 106.6881] },
   { question: "Thành phố Cần Thơ ở đâu?", answer: [10.0452, 105.7469] },
   { question: "Thành phố Nha Trang ở đâu?", answer: [12.2388, 109.1962] },
