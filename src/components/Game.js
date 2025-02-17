@@ -47,6 +47,14 @@ const Game = () => {
 
     setShowResult(true);
   };
+  const formatGeoLocationWithDirection = (latitude, longitude) => {
+    const latDirection = latitude >= 0 ? "Bắc" : "Nam";
+    const lonDirection = longitude >= 0 ? "Đông" : "Tây";
+
+    return `${Math.abs(latitude).toFixed(4)}° ${latDirection}, ${Math.abs(
+      longitude
+    ).toFixed(4)}° ${lonDirection}`;
+  };
 
   const nextQuestion = () => {
     setSelectedPos(null);
@@ -112,8 +120,11 @@ const Game = () => {
                     {answerStatus === "correct"
                       ? "Đáp án đúng!"
                       : "Đáp án sai!"}{" "}
-                    Đáp án là: {currentQuestion.answer[0]},{" "}
-                    {currentQuestion.answer[1]}
+                    Đáp án là:{" "}
+                    {formatGeoLocationWithDirection(
+                      currentQuestion.answer[0],
+                      currentQuestion.answer[1]
+                    )}
                   </Alert>
                   <Button onClick={nextQuestion} variant="success">
                     <FontAwesomeIcon icon={faArrowRight} className="me-2" />
