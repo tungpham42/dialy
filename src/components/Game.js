@@ -37,9 +37,13 @@ const Game = () => {
     const [ansLat, ansLng] = currentQuestion.answer;
     const distance = Math.sqrt((lat - ansLat) ** 2 + (lng - ansLng) ** 2);
 
-    // If the answer is correct, increment score
-    if (distance < 1) {
-      setScore(score + 1);
+    // New difficulty adjustments
+    const maxDistance = 0.5; // Reduced threshold for correctness (more difficult)
+    const scoreMultiplier = Math.max(0, 2 - distance); // Higher multiplier for closer answers
+
+    // If the distance is smaller than the threshold, increment the score with a multiplier
+    if (distance < maxDistance) {
+      setScore((prevScore) => prevScore + Math.floor(scoreMultiplier));
       setAnswerStatus("correct");
     } else {
       setAnswerStatus("incorrect");
@@ -47,6 +51,7 @@ const Game = () => {
 
     setShowResult(true);
   };
+
   const formatGeoLocationWithDirection = (latitude, longitude) => {
     const latDirection = latitude >= 0 ? "Bắc" : "Nam";
     const lonDirection = longitude >= 0 ? "Đông" : "Tây";
